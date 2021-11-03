@@ -57,31 +57,6 @@ if ($url == "/") {
     }
 }
 
-if ($url == "#^/reyna#") {
-    $template = "__object.twig";
-    $title = "Рейна";
-    $context['image'] = "/images/Reyna.png";
-
-    if (preg_match("#^/reyna/image#", $url)) {
-        $template = "image.twig";
-    } elseif (preg_match("#^/reyna/info#", $url)) {
-        $template = "reyna_info.twig";
-    }
-}
-
-if ($url == "#^/killjoy#") {
-
-    $title = "Киллджой";
-    $template = "__object.twig";
-    $context['image'] = "/images/Killjoy.png";
-
-    if (preg_match("#^/killjoy/image#", $url)) {
-        $template = "image.twig";
-    } elseif (preg_match("#^/killjoy/info#", $url)) {
-        $template = "killjoy_info.twig";
-    }
-}
-
 $context['title'] = $title;
 $context['menu'] = $menu;
 

@@ -34,6 +34,8 @@ if ($url == "/") {
     $template = "__object.twig";
     $title = "Рейна";
     $context['image'] = "/images/Reyna.png";
+    $context['image_url'] = "/reyna/image";
+    $context['info_url'] = "/reyna/info";
 
     if (preg_match("#^/reyna/image#", $url)) {
         $template = "image.twig";
@@ -45,6 +47,8 @@ if ($url == "/") {
     $title = "Киллджой";
     $template = "__object.twig";
     $context['image'] = "/images/Killjoy.png";
+    $context['image_url'] = "/killjoy/image";
+    $context['info_url'] = "/killjoy/info";
 
     if (preg_match("#^/killjoy/image#", $url)) {
         $template = "image.twig";
@@ -53,29 +57,29 @@ if ($url == "/") {
     }
 }
 
-if ($url == "#^/reyna#"){
+if ($url == "#^/reyna#") {
     $template = "__object.twig";
     $title = "Рейна";
     $context['image'] = "/images/Reyna.png";
 
-    if (preg_match("#^/reyna/image#", $url)){
+    if (preg_match("#^/reyna/image#", $url)) {
         $template = "image.twig";
-     } elseif (preg_match("#^/reyna/info#", $url)) {
+    } elseif (preg_match("#^/reyna/info#", $url)) {
         $template = "reyna_info.twig";
     }
 }
 
 if ($url == "#^/killjoy#") {
-    
-        $title = "Киллджой";
-        $template = "__object.twig";
-        $context['image'] = "/images/Killjoy.png";
-    
-        if (preg_match("#^/killjoy/image#", $url)) {
-            $template = "image.twig";
-        } elseif (preg_match("#^/killjoy/info#", $url)) {
-            $template = "killjoy_info.twig";
-        }
+
+    $title = "Киллджой";
+    $template = "__object.twig";
+    $context['image'] = "/images/Killjoy.png";
+
+    if (preg_match("#^/killjoy/image#", $url)) {
+        $template = "image.twig";
+    } elseif (preg_match("#^/killjoy/info#", $url)) {
+        $template = "killjoy_info.twig";
+    }
 }
 
 $context['title'] = $title;

@@ -2,6 +2,7 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require_once "../controllers/MainController.php"; // добавим в самом верху ссылку на наш контроллер
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader);
 
@@ -11,6 +12,7 @@ $title = "";
 $template = "";
 
 $context = []; // наш словарик, данные для шаблона принято называть контекстом
+$controller = null;
 $menu = [ // добавил список словариков
     [
         "title" => "Главная",
@@ -28,9 +30,11 @@ $menu = [ // добавил список словариков
 
 if ($url == "/") {
 
+    $controller = new MainController($twig); // создаем экземпляр контроллера для главной страницы
     $title = "Главная";
     $template = "main.twig";
 } elseif (preg_match("#^/reyna#", $url)) {
+
     $template = "__object.twig";
     $title = "Рейна";
     $context['image'] = "/images/Reyna.png";
@@ -57,8 +61,10 @@ if ($url == "/") {
     }
 }
 
-$context['title'] = $title;
 $context['menu'] = $menu;
 
-echo $twig->render($template, $context);
+if ($controller) {
+    $controller->get();
+}
+
 ?>

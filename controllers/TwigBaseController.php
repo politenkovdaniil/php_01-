@@ -1,11 +1,26 @@
 <?php
 require_once "BaseController.php"; // обязательно импортим BaseController
 
-class TwigBaseController extends BaseController {
+class TwigBaseController extends BaseController
+{
     public $title = ""; // название страницы
     public $template = ""; // шаблон страницы
+    public $menu = [ 
+        [
+            "title" => "Главная",
+            "url" => "/",
+        ],
+        [
+            "title" => "Рейна",
+            "url" => "/reyna",
+        ],
+        [
+            "title" => "Киллджой",
+            "url" => "/killjoy",
+        ]
+    ];
     protected \Twig\Environment $twig; // ссылка на экземпляр twig, для рендернига
-    
+
     // теперь пишем конструктор, 
     // передаем в него один параметр
     // собственно ссылка на экземпляр twig
@@ -16,19 +31,20 @@ class TwigBaseController extends BaseController {
     {
         $this->twig = $twig; // пробрасываем его внутрь
     }
-    
+
     // переопределяем функцию контекста
-    public function getContext() : array
+    public function getContext(): array
     {
         $context = parent::getContext(); // вызываем родительский метод
         $context['title'] = $this->title; // добавляем title в контекст
-
+        $context['menu'] = $this->menu;
         return $context;
     }
-    
+
     // функция гет, рендерит результат используя $template в качестве шаблона
     // и вызывает функцию getContext для формирования словаря контекста
-    public function get() {
+    public function get()
+    {
         echo $this->twig->render($this->template, $this->getContext());
     }
 }

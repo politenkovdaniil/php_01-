@@ -3,6 +3,7 @@
 
 require_once '../vendor/autoload.php';
 require_once "../controllers/MainController.php";
+require_once "../controllers/ReynaController.php";
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader);
 
@@ -16,11 +17,7 @@ $controller = null;
 if ($url == "/") {
     $controller = new MainController($twig);
 } elseif (preg_match("#^/reyna#", $url)) {
-    $template = "__object.twig";
-    $title = "Рейна";
-    $context['image'] = "/images/Reyna.png";
-    $context['image_url'] = "/reyna/image";
-    $context['info_url'] = "/reyna/info";
+    $controller = new ReynaController($twig);
 
     if (preg_match("#^/reyna/image#", $url)) {
         $template = "image.twig";

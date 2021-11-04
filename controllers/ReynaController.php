@@ -1,5 +1,5 @@
 <?php
-require_once "BaseController.php"; // обязательно импортим BaseController
+require_once "TwigBaseController.php";
 
 class ReynaController extends TwigBaseController
 {
@@ -12,7 +12,6 @@ class ReynaController extends TwigBaseController
 
         $context['image_url'] = "/reyna/image";
         $context['info_url'] = "/reyna/info";
-
 
         return $context;
     }

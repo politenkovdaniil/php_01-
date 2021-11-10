@@ -1,4 +1,5 @@
 {% extends "__layout.twig" %}
+{% import "macro.html.twig" as forms %}
 
 {% block content %}
 
@@ -11,13 +12,13 @@
 
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link {{ is_image }}" href="{{image_url}}"><button type="button"
-                    class="btn btn-light">Картинка</button></a>
+            <a> {{ forms.btn("Картинка", "url", false, "warning") }} </a>
+                <a class="nav-link {{ is_image }}" href="{{image_url}}">Картинка</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link  {{ is_info }} " href="{{info_url}}"><button type="button"
-                    class="btn btn-light">Описание</button></a>
+            <a> {{ forms.btn("Описание", "url", true, "warning") }} </a>
+            <a class="nav-link  {{ is_info }} " href="{{info_url}}">Описание</a>
         </li>
     </ul>
 </li>

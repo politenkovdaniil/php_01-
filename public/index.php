@@ -12,8 +12,10 @@ require_once "../controllers/KilljoyInfoController.php";
 require_once "../controllers/Controller404.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
-$twig = new \Twig\Environment($loader);
-
+$twig = new \Twig\Environment($loader, [
+    "debug" => true // добавляем тут debug режим
+]);
+$twig->addExtension(new \Twig\Extension\DebugExtension()); // и активируем расширение
 $url = $_SERVER["REQUEST_URI"];
 
 $title = "";
@@ -21,6 +23,7 @@ $template = "";
 $context = [];
 $controller = null;
 $controller = new Controller404($twig);
+$pdo = new PDO("mysql:host=localhost;dbname=outer_space;charset=utf8", "root", "");
 
 if ($url == "/") {
     $controller = new MainController($twig);
@@ -40,6 +43,7 @@ if ($url == "/") {
 }
 
 if ($controller) {
+    $controller->setPDO($pdo);
     $controller->get();
 }
 ?>

@@ -2,6 +2,14 @@
 {% import "macro.html.twig" as forms %}
 
 {% block content %}
+
+{% for object in space_objects %}
+    Название: {{ object.title }} <br>  
+{% endfor %}
+<pre>
+    {{ dump(space_objects) }} <!-- добавил вывод данных -->
+</pre>
+
 <ul class="list-group">
     <li class="list-group-item">
         <a> {{ forms.btn("Рейна", "/reyna", true, "warning") }} </a>

@@ -2,6 +2,7 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require_once "../framework/autoload.php";
 require_once "../controllers/MainController.php";
 require_once "../controllers/ReynaController.php";
 require_once "../controllers/ReynaImageController.php";
@@ -27,19 +28,6 @@ $pdo = new PDO("mysql:host=localhost;dbname=outer_space;charset=utf8", "root", "
 
 if ($url == "/") {
     $controller = new MainController($twig);
-} elseif (preg_match("#^/reyna/image#", $url)) { 
-    $controller = new ReynaImageController($twig);
-} elseif (preg_match("#^/reyna/info#", $url)) {
-    $controller = new ReynaInfoController($twig);
-} elseif (preg_match("#^/reyna#", $url)) {
-    $controller = new ReynaController($twig);
-
-} elseif ( preg_match("#^/killjoy/image#", $url)){
-    $controller = new KilljoyImageController($twig);
-} elseif ( preg_match("#^/killjoy/info#", $url)){
-    $controller = new KilljoyInfoController($twig);
-} elseif ( preg_match("#^/killjoy#", $url)) {
-    $controller = new KilljoyController($twig);
 }
 
 if ($controller) {

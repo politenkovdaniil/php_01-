@@ -42,10 +42,12 @@ class Router {
 
         // фиксируем в контроллер $default_controller
         $controller = $default_controller;
+
+        $matches = [];
         // проходим по списку $routes 
         foreach($this->routes as $route) {
             // проверяем подходит ли маршрут под шаблон
-            if (preg_match($route->route_regexp, $url)) {
+            if (preg_match($route->route_regexp, $url, $matches)) {
                 // если подходит, то фиксируем привязанные к шаблону контроллер 
                 $controller = $route->controller;
                // и выходим из цикла
@@ -57,6 +59,7 @@ class Router {
         $controllerInstance = new $controller();
         // передаем в него pdo
         $controllerInstance->setPDO($this->pdo);
+        $controllerInstance->setParams($matches); // передаем параметров
 
         // проверяем не является ли controllerInstance наследником TwigBaseController
         // и если является, то передает в него twig

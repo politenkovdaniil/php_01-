@@ -31,7 +31,7 @@ $router = new Router($twig, $pdo);
 
 $router->add("/", MainController::class);
 $router->add("/reyna", ReynaController::class);
-$router->add("/space-object/(\d+)", ObjectController::class); 
+$router->add("/agents-object/(?P<id>\d+)", ObjectController::class); 
 
 $router->get_or_default(Controller404::class);
 

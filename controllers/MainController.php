@@ -1,5 +1,5 @@
 <?php
-require_once "TwigBaseController.php"; // импортим TwigBaseController
+//require_once "TwigBaseController.php"; // импортим TwigBaseController
 
 class MainController extends TwigBaseController {
     public $template = "main.twig";
@@ -9,12 +9,12 @@ class MainController extends TwigBaseController {
     {
         $context = parent::getContext();
         
-        // подготавливаем запрос SELECT * FROM space_objects
+        // подготавливаем запрос SELECT * FROM agents_objects
         // вообще звездочку не рекомендуется использовать, но на первый раз пойдет
-        $query = $this->pdo->query("SELECT * FROM space_objects");
+        $query = $this->pdo->query("SELECT * FROM agents_objects");
         
         // стягиваем данные через fetchAll() и сохраняем результат в контекст
-        $context['space_objects'] = $query->fetchAll();
+        $context['agents_objects'] = $query->fetchAll();
 
         return $context;
     }

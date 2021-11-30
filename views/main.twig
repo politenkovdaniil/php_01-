@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="row">
-    {% for object in space_objects %}
+    {% for object in agents_objects %}
 
     <div class="col-auto border mb-3 mt-3 me-3">
         <div class="mb-1 mt-3">
@@ -11,12 +11,12 @@
         </div>
 
         <div class="d-grid nav-link">
-            <a href="" class="btn btn-dark" role="button" data-bs-toggle="button">{{ object.title }}</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-dark" role="button" data-bs-toggle="button">{{ object.title }}</a>
         </div>
 
         <div class="nav-link">
-            <a href="" class="btn btn-light" role="button" data-bs-toggle="button">Картинка</a>
-            <a href="" class="btn btn-light" role="button" data-bs-toggle="button">Описание</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Картинка</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Описание</a>
         </div>
     </div>
     {% endfor %}
@@ -24,19 +24,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <!-- Название: {{ object.title }} <br>  
 <pre>
-    {{ dump(space_objects) }} 
+    {{ dump(agents_objects) }} 
 </pre>
 
 <ul class="list-group">

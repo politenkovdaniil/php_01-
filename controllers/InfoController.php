@@ -1,6 +1,6 @@
 <?php
 
-class ObjectController extends TwigBaseController
+class InfoController extends ObjectController
 {
     public $template = "__object.twig";
 
@@ -20,15 +20,11 @@ class ObjectController extends TwigBaseController
         $query->execute(); // выполняем запрос
 
         // тянем данные
-        
-
-
-        
         $data = $query->fetch();
+
         // передаем описание из БД в контекст
-        $context['description'] = $data['description'];
-        $context['image_url'] = '/agents_object/'.$data['id'].'/image';
-        $context['info_url'] = '/agents_object/'.$data['id'].'/info';
+        $context['info'] = $data['info'];
+        $context['is_info'] = true;
 
 
         return $context;

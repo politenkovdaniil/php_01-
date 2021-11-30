@@ -1,8 +1,8 @@
 <?php
 
-class ObjectController extends TwigBaseController
+class ImageController extends ObjectController
 {
-    public $template = "__object.twig";
+    public $template = "image.twig";
 
     public function getContext(): array
     {
@@ -20,15 +20,11 @@ class ObjectController extends TwigBaseController
         $query->execute(); // выполняем запрос
 
         // тянем данные
-        
-
-
-        
         $data = $query->fetch();
+        
         // передаем описание из БД в контекст
-        $context['description'] = $data['description'];
-        $context['image_url'] = '/agents_object/'.$data['id'].'/image';
-        $context['info_url'] = '/agents_object/'.$data['id'].'/info';
+        $context['image'] = $data['image'];
+        $context['is_image'] = true;
 
 
         return $context;

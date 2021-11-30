@@ -11,7 +11,8 @@ require_once "../controllers/KilljoyController.php";
 require_once "../controllers/KilljoyImageController.php";
 require_once "../controllers/KilljoyInfoController.php";
 require_once "../controllers/Controller404.php";
-require_once "../controllers/ObjectController.php";
+require_once "../controllers/InfoController.php";
+require_once "../controllers/ImageController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -32,6 +33,8 @@ $router = new Router($twig, $pdo);
 $router->add("/", MainController::class);
 $router->add("/reyna", ReynaController::class);
 $router->add("/agents-object/(?P<id>\d+)", ObjectController::class); 
+$router->add("/agents-object/(?P<id>\d+)/image", ObjectController::class); 
+$router->add("/agents-object/(?P<id>\d+)/info", ObjectController::class); 
 
 $router->get_or_default(Controller404::class);
 

@@ -11,15 +11,20 @@
         {% endblock %}
     </h5>
 
-    <ul class="nav nav-pills">
+        <div class="nav-link">
+            <a href="/agents-object/{{ object.id }}/image" class="btn btn-info" role="button" data-bs-toggle="button">Картинка</a>
+            <a href="/agents-object/{{ object.id }}/info" class="btn btn-info" role="button" data-bs-toggle="button">Описание</a>
+        </div>
+    
+    <!-- <ul class="nav nav-pills">
         <li class="nav-item">
-            {{ forms.btn("Картинка", image_url, true, "warning") }}
+            {{ forms.btn("Картинка", object.image , true, "warning") }}
         </li>
 
         <li class="nav-item">
             {{ forms.btn("Описание", info_url, true, "warning") }}
         </li>
-    </ul>
-</li>
+    </ul> -->
+</li> 
 </div>
 {% endblock %}

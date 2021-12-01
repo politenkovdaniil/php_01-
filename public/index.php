@@ -33,8 +33,8 @@ $router = new Router($twig, $pdo);
 $router->add("/", MainController::class);
 $router->add("/reyna", ReynaController::class);
 $router->add("/agents-object/(?P<id>\d+)", ObjectController::class); 
-$router->add("/agents-object/(?P<id>\d+)/image", ObjectController::class); 
-$router->add("/agents-object/(?P<id>\d+)/info", ObjectController::class); 
+$router->add("/agents-object/(?P<id>\d+)/image", ImageController::class); 
+$router->add("/agents-object/(?P<id>\d+)/info", InfoController::class); 
 
 $router->get_or_default(Controller404::class);
 

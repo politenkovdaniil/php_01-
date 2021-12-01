@@ -14,18 +14,14 @@ class ObjectController extends TwigBaseController
         
         
         // создам запрос, под параметр создаем переменную my_id в запросе
-        $query = $this->pdo->prepare("SELECT description, id FROM agents_objects WHERE id= :my_id");
+        $query = $this->pdo->prepare("SELECT * FROM agents_objects WHERE id= :my_id");
         // подвязываем значение в my_id 
         $query->bindValue("my_id", $this->params['id']);
         $query->execute(); // выполняем запрос
 
-        // тянем данные
-        
-
-
-        
         $data = $query->fetch();
         // передаем описание из БД в контекст
+        $context['object'] = $data;
         $context['description'] = $data['description'];
         $context['image_url'] = '/agents_object/'.$data['id'].'/image';
         $context['info_url'] = '/agents_object/'.$data['id'].'/info';

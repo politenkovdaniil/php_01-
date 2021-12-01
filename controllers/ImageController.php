@@ -1,5 +1,5 @@
 <?php
-
+require_once "ObjectController.php";
 class ImageController extends ObjectController
 {
     public $template = "image.twig";
@@ -14,7 +14,7 @@ class ImageController extends ObjectController
         
         
         // создам запрос, под параметр создаем переменную my_id в запросе
-        $query = $this->pdo->prepare("SELECT description, id FROM agents_objects WHERE id= :my_id");
+        $query = $this->pdo->prepare("SELECT * FROM agents_objects WHERE id= :my_id");
         // подвязываем значение в my_id 
         $query->bindValue("my_id", $this->params['id']);
         $query->execute(); // выполняем запрос

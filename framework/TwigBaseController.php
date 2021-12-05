@@ -9,16 +9,18 @@ class TwigBaseController extends BaseController
         [
             "title" => "Главная",
             "url" => "/",
-        ],
-        [
-            "title" => "Рейна",
-            "url" => "/reyna",
-        ],
-        [
-            "title" => "Киллджой",
-            "url" => "/killjoy",
         ]
     ];
+
+    /*  ,
+        [
+            "title" => "Дуэлянт",
+            "url" => "/types",
+        ],
+        [
+            "title" => "Страж",
+            "url" => "/types",
+    ] */
     protected \Twig\Environment $twig; // ссылка на экземпляр twig, для рендернига
 
     // теперь пишем конструктор, 

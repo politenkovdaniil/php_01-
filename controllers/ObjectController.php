@@ -29,6 +29,7 @@ class ObjectController extends BaseAgentTwigController
         $context['info_url'] = '/agents_object/'.$data['id'].'/info';
 
 
+
         return $context;
     }
 }

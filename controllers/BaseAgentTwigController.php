@@ -1,5 +1,5 @@
 <?php
-require_once "ObjectController.php";
+
 class BaseAgentTwigController extends TwigBaseController
 {
     public function getContext(): array

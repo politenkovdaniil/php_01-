@@ -1,5 +1,5 @@
 <?php
-require_once "ReynaController.php";
+require_once "BaseAgentTwigController.php";
 
 class ReynaInfoController extends ReynaController
 {

@@ -1,6 +1,8 @@
 <?php
 
-class ObjectController extends TwigBaseController
+require_once "BaseAgentTwigController.php";
+
+class ObjectController extends BaseAgentTwigController
 {
     public $template = "__object.twig";
 

@@ -1,7 +1,7 @@
 <?php
-//require_once "TwigBaseController.php";
+require_once "BaseAgentTwigController.php";
 
-class ReynaController extends TwigBaseController
+class ReynaController extends BaseAgentTwigController
 {
     public $title = "Рейна";
     public $template = "__object.twig";

@@ -13,6 +13,7 @@ require_once "../controllers/KilljoyInfoController.php";
 require_once "../controllers/Controller404.php";
 require_once "../controllers/InfoController.php";
 require_once "../controllers/ImageController.php";
+require_once "../controllers/BaseAgentTwigController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [

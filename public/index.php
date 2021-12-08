@@ -14,6 +14,7 @@ require_once "../controllers/Controller404.php";
 require_once "../controllers/InfoController.php";
 require_once "../controllers/ImageController.php";
 require_once "../controllers/BaseAgentTwigController.php";
+require_once "../controllers/SearchController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -37,6 +38,7 @@ $router->add("/reyna", ReynaController::class);
 $router->add("/agents-object/(?P<id>\d+)", ObjectController::class); 
 $router->add("/agents-object/(?P<id>\d+)/image", ImageController::class); 
 $router->add("/agents-object/(?P<id>\d+)/info", InfoController::class); 
+$router->add("/search", SearchController::class);
 
 $router->get_or_default(Controller404::class);
 

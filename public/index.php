@@ -4,12 +4,6 @@
 require_once '../vendor/autoload.php';
 require_once "../framework/autoload.php";
 require_once "../controllers/MainController.php";
-require_once "../controllers/ReynaController.php";
-require_once "../controllers/ReynaImageController.php";
-require_once "../controllers/ReynaInfoController.php";
-require_once "../controllers/KilljoyController.php";
-require_once "../controllers/KilljoyImageController.php";
-require_once "../controllers/KilljoyInfoController.php";
 require_once "../controllers/Controller404.php";
 require_once "../controllers/InfoController.php";
 require_once "../controllers/ImageController.php";

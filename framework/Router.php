@@ -78,6 +78,7 @@ class Router
         }
 
         // вызываем
-        return $controllerInstance->get();
+        //return $controllerInstance->get();
+        return $controllerInstance->process_response(); // теперь тут process_response вместо get
     }
 }

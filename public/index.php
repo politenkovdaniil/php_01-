@@ -9,6 +9,8 @@ require_once "../controllers/InfoController.php";
 require_once "../controllers/ImageController.php";
 require_once "../controllers/BaseAgentTwigController.php";
 require_once "../controllers/SearchController.php";
+require_once "../controllers/AgentObjectCreateController.php";
+require_once "../controllers/ObjectController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -33,6 +35,7 @@ $router->add("/agents-object/(?P<id>\d+)", ObjectController::class);
 $router->add("/agents-object/(?P<id>\d+)/image", ImageController::class); 
 $router->add("/agents-object/(?P<id>\d+)/info", InfoController::class); 
 $router->add("/search", SearchController::class);
+$router->add("/space-object/create", AgentObjectCreateController::class);
 
 $router->get_or_default(Controller404::class);
 

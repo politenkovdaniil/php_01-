@@ -32,6 +32,6 @@ abstract class BaseController
     }
     
     // уберем тут abstract, и просто сделаем два пустых метода под get и post запросы
-    public function get() {} 
-    public function post() {}
+    public function get(array $context) {} 
+    public function post(array $context) {}
 }

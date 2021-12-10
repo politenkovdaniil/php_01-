@@ -12,7 +12,7 @@ class AgentObjectCreateController extends BaseAgentTwigController {
         
     }
 
-    public function post(array $context) {
+    public function post( array $context) {
         // получаем значения полей с формы
         $title = $_POST['title'];
         $description = $_POST['description'];

@@ -6,7 +6,6 @@ class AgentObjectCreateController extends BaseAgentTwigController {
 
     public function get(array $context)
     {
-        echo $_SERVER['REQUEST_METHOD'];
         
         parent::get($context);
         
@@ -18,6 +17,11 @@ class AgentObjectCreateController extends BaseAgentTwigController {
         $description = $_POST['description'];
         $type = $_POST['type'];
         $info = $_POST['info'];
+
+        // добавил
+     /* echo "<pre>";
+        print_r($_POST);
+        echo "</pre>"; */
 
         // вытащил значения из $_FILES
         $tmp_name = $_FILES['image']['tmp_name'];

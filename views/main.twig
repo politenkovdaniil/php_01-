@@ -5,25 +5,29 @@
 <div class="row">
     {% for object in agents_objects %}
 
-    <div class="col-auto border mb-3 mt-3 me-3 position-relative">
+    <div class="col-auto border mb-3 mt-3 me-3 position-relative d-flex flex-column align-items-center">
         <div class="position-absolute" style="right: 4px; top: 4px">
             <form action="/agents-object/{{object.id}}/delete" method="POST">
                 <input type="hidden" name="id" value="{{object.id}}">
-                <button type="submit" class="btn btn-danger">
+                <button type="submit" class="btn btn-primary">
                     <i class="fas fa-times"></i>
                 </button>
             </form>
         </div>
-        {#  <div class="img-thumbnail mb-2" style="width: 200px; height: 100%; overflow:hidden">
+        {# <div class="img-thumbnail mb-2" style="width: 200px; height: 100%; overflow:hidden">
             <img src="{{object.image}}" style="height: 100%; width: 100%; object-fit: cover;" alt="">
 
         </div> #}
+        <figure class="cover">
+            <div class="mb-1 mt-3">
+                <img src="{{ object.image }}" style="height: 300px; width: 100%;">
+            </div>
+        </figure>
+        {# <div class="mb-1 mt-3" style="height: 200px;">
+            <img src="{{ image_url }}" style="height: 200px;">
+        </div>#}
 
-        <div class="mb-1 mt-3">
-            <img src="{{ object.image }}" style="width: 200px;">
-        </div> 
-
-        <div class="d-grid nav-link">
+        <div class="d-grid nav-link align-self-stretch">
             <a href="/agents-object/{{ object.id }}" class="btn btn-dark" role="button" data-bs-toggle="button">{{
                 object.title }}</a>
         </div>

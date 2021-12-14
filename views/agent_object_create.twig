@@ -11,7 +11,7 @@
     </div>
     {% endif %}
 
-    <form action="" method="POST" class="row g-3">
+    <form action="" enctype="multipart/form-data" method="POST" class="row g-3">
         <div class="col-md-2">
             <label class="form-label">Название</label>
             <input type="text" class="form-control" name="title">
@@ -27,6 +27,10 @@
                 <option value="страж">Страж</option>
             </select>
         </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Выберите файл</label>
+            <input class="form-control" type="file" id="formFile" name="image">
+          </div>
         <div class="col-12">
             <textarea name="info" placeholder="Полное описание..." class="form-control" rows="5"></textarea>
         </div>

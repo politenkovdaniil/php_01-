@@ -5,18 +5,34 @@
 <div class="row">
     {% for object in agents_objects %}
 
-    <div class="col-auto border mb-3 mt-3 me-3">
+    <div class="col-auto border mb-3 mt-3 me-3 position-relative">
+        <div class="position-absolute" style="right: 4px; top: 4px">
+            <form action="/agents-object/{{object.id}}/delete" method="POST">
+                <input type="hidden" name="id" value="{{object.id}}">
+                <button type="submit" class="btn btn-danger" style="height: 25px;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </form>
+        </div>
+        {#  <div class="img-thumbnail mb-2" style="width: 200px; height: 100%; overflow:hidden">
+            <img src="{{object.image}}" style="height: 100%; width: 100%; object-fit: cover;" alt="">
+
+        </div> #}
+
         <div class="mb-1 mt-3">
             <img src="{{ object.image }}" style="width: 200px;">
-        </div>
+        </div> 
 
         <div class="d-grid nav-link">
-            <a href="/agents-object/{{ object.id }}" class="btn btn-dark" role="button" data-bs-toggle="button">{{ object.title }}</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-dark" role="button" data-bs-toggle="button">{{
+                object.title }}</a>
         </div>
 
         <div class="nav-link">
-            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Картинка</a>
-            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Описание</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button"
+                data-bs-toggle="button">Картинка</a>
+            <a href="/agents-object/{{ object.id }}" class="btn btn-light" role="button"
+                data-bs-toggle="button">Описание</a>
         </div>
     </div>
     {% endfor %}
